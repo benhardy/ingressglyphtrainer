@@ -301,7 +301,9 @@
 
 - (void)setQuestionGlyph:(NSSet *)questionGlyph
 {
-    self.glyphNameLabel.text = [self nameOfGlyph:questionGlyph];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        self.glyphNameLabel.text = [self nameOfGlyph:questionGlyph];
+    }];
     self->_questionGlyph = questionGlyph;
 }
 
